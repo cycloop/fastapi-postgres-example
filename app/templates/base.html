@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', path='/assets/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/headers.css') }}" rel="stylesheet">
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+</head>
+<body>
+
+    {% block header %}
+        <header class="p-3 bg-dark text-white">
+          <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+              <a href="/home" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <h3 style="margin-right: 50px">HR</h3>
+              </a>
+
+              <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+                <li><a href="/items/5" class="nav-link px-2 text-white">Leaves</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+              </ul>
+
+              <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                <input type="search" class="form-control form-control-dark" placeholder="Search...">
+              </form>
+
+            </div>
+          </div>
+        </header>
+    {% endblock %}
+
+    <div id="content" class="container">{% block content %}{% endblock %}</div>
+    <div id="footer">
+        {% block footer %}
+        &copy; Copyright 2021 by <a href="http://domain.invalid/">you</a>.
+        {% endblock %}
+    </div>
+
+    <script src="../static/assets/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
